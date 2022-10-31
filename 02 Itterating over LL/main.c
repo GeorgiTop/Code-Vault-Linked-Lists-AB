@@ -2,23 +2,23 @@
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct Node {
+typedef struct Thing {
     int x;
-    struct Node* next;
-} Node;
+    struct Thing* next;
+} Thing;
 
 int main(int argc, char* argv[]) {
-    Node root;
+    Thing root;
     root.x = 15;
-    root.next = malloc(sizeof(Node));
+    root.next = malloc(sizeof(Thing));
     root.next->x = -2;
-    root.next->next = malloc(sizeof(Node));
+    root.next->next = malloc(sizeof(Thing));
     root.next->next->x = 22;
     root.next->next->next = NULL;
     
     /* While Loop */
     {
-        Node* curr = &root;
+        Thing* curr = &root;
         while (curr != NULL) {
             printf("%d\n", curr->x);
             curr = curr->next;
@@ -27,8 +27,8 @@ int main(int argc, char* argv[]) {
     }
     
     /* For Loop*/
-    for (Node* curr = &root; curr != NULL; curr = curr->next) {
-        printf("%d\n", curr->x);
+    for (Thing* item = &root; item != NULL; item = item->next) {
+        printf("%d\n", item->x);
     }
     
     free(root.next->next);
