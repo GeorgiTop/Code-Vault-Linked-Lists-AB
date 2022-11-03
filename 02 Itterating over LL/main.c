@@ -2,33 +2,35 @@
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct Thing {
+struct _Node {
     int x;
-    struct Thing* next;
-} Thing;
+    struct _Node* next;
+};
+
+typedef struct _Node Node;
 
 int main(int argc, char* argv[]) {
-    Thing root;
+    Node root;
+    Node* curr = &root;
     root.x = 15;
-    root.next = malloc(sizeof(Thing));
+    root.next = malloc(sizeof(Node));
     root.next->x = -2;
-    root.next->next = malloc(sizeof(Thing));
+    root.next->next = malloc(sizeof(Node));
     root.next->next->x = 22;
     root.next->next->next = NULL;
     
     /* While Loop */
-    {
-        Thing* curr = &root;
-        while (curr != NULL) {
-            printf("%d\n", curr->x);
-            curr = curr->next;
-        }
-
-    }
+    // {
+    //     Node* curr = &root;
+    //     while (curr != NULL) {
+    //         printf("%d\n", curr->x);
+    //         curr = curr->next;
+    //     }
+    // }
     
     /* For Loop*/
-    for (Thing* item = &root; item != NULL; item = item->next) {
-        printf("%d\n", item->x);
+    for (; curr != NULL; curr = curr->next) {
+        printf("%d\n", curr->x);
     }
     
     free(root.next->next);
