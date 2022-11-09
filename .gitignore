@@ -1,2 +1,4 @@
 src/.vscode
+src/.vscode/launch.json
+src/.vscode/tasks.json
 **/main.exe
