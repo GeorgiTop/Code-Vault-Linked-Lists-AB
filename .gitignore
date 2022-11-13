@@ -4,3 +4,4 @@ src/.vscode/tasks.json
 src/.vscode/settings.json
 src/.vscode/c_cpp_properties.json
 **/main.exe
+**/main
